@@ -5,29 +5,44 @@ import Button from '@components/ui/Button.astro';
 ---
 
 <section
-	data-testid="hero"
-	class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
+  data-testid="hero"
+  class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
 >
-	<div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
-		<div>
-			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
-				Hi! My name is <span class="text-orange">Jane Doe</span> and I am a web developer based in New
-				York.
-			</h1>
-		</div>
-		<div class="mb-10">
-			<Button style={'primary'} size={'lg'} class={'flex'} name="learn more">Learn more</Button>
-		</div>
-	</div>
-	<div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
-		<Image
-			src={heroImage}
-			alt="Coding girl"
-			aspectRatio="4:4"
-			format="png"
-			width={600}
-			height={600}
-			loading="eager"
-		/>
-	</div>
+  <div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
+    <div>
+      <h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
+        Salut ! Moi c'est <span class="text-orange">Fabien Gentil</span> et je suis Web Developpeur.
+      </h1>
+    </div>
+    <div class="mb-10">
+      <a href="#about">
+        <Button style={'primary'} size={'lg'} class={'flex'} name="learn more">La suite ?</Button>
+      </a>
+    </div>
+  </div>
+  <div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
+    <Image
+      src={heroImage}
+      alt="Coding girl"
+      aspectRatio="4:4"
+      format="png"
+      width={600}
+      height={600}
+      loading="eager"
+    />
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function ready() {
+      const learnMoreButton = document.querySelector('[data-testId="hero"] [name="learn more"]');
+      const aboutSection = document.getElementById('about');
+
+      if (learnMoreButton && aboutSection) {
+        learnMoreButton.addEventListener('click', function scrollToAbout(event) {
+          event.preventDefault();
+          aboutSection.scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
 </section>
