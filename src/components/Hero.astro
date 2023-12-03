@@ -4,24 +4,31 @@ import { Image } from '@astrojs/image/components';
 import Button from '@components/ui/Button.astro';
 ---
 
+<style>
+  .fade-transition {
+    transition: opacity 0.7s ease-in-out;
+  }
+</style>
+
 <section
   data-testid="hero"
   class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
 >
   <div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
     <div>
-      <h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
+      <h1 id="heroTitle" class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl fade-transition">
         Salut ! Moi c'est <span class="text-orange">Fabien Gentil</span> et je suis Web Developpeur.
       </h1>
     </div>
     <div class="mb-10">
       <a href="#about">
-        <Button style={'primary'} size={'lg'} class={'flex'} name="learn more">La suite ?</Button>
+        <Button id="learnMoreButton" style={'primary'} size={'lg'} class={'flex fade-transition'} name="learn more">La suite ?</Button>
       </a>
     </div>
   </div>
   <div data-testid="hero-img" class="mb-10 flex w-1/2 items-center justify-center">
     <Image
+      id="heroImage"
       src={heroImage}
       alt="Coding girl"
       aspectRatio="4:4"
@@ -29,15 +36,28 @@ import Button from '@components/ui/Button.astro';
       width={600}
       height={600}
       loading="eager"
+      class="fade-transition"
     />
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function ready() {
-      const learnMoreButton = document.querySelector('[data-testId="hero"] [name="learn more"]');
+      const heroTitle = document.getElementById('heroTitle');
+      const learnMoreButton = document.getElementById('learnMoreButton');
+      const heroImage = document.getElementById('heroImage');
       const aboutSection = document.getElementById('about');
 
-      if (learnMoreButton && aboutSection) {
+      if (heroTitle && learnMoreButton && heroImage && aboutSection) {
+        window.addEventListener('scroll', function handleScroll() {
+          const scrollPosition = window.scrollY;
+
+          const opacity = 1 - Math.min(scrollPosition / 90, 1);
+
+          heroTitle.style.opacity = opacity.toString();
+          learnMoreButton.style.opacity = opacity.toString();
+          heroImage.style.opacity = opacity.toString();
+        });
+
         learnMoreButton.addEventListener('click', function scrollToAbout(event) {
           event.preventDefault();
           aboutSection.scrollIntoView({ behavior: 'smooth' });

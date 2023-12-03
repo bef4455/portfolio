@@ -41,13 +41,6 @@
 			}
 		};
 
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			switchTheme();
-		}
-
 		button.addEventListener('click', () => {
 			switchTheme();
 		});
