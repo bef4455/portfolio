@@ -13,6 +13,13 @@ const { title = 'John Doe | Web developer' } = Astro.props as LayoutProps;
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
+		<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P3FM7JTR');</script>
+	<!-- End Google Tag Manager -->
 		<SEO
 			title="Fabien Gentil / Développeur WEB React.JS - Node.Js - MongoDB"
 			description="Salut ! Je suis Fabien, un passionné de tech basé en Île-de-France..."
@@ -28,6 +35,10 @@ const { title = 'John Doe | Web developer' } = Astro.props as LayoutProps;
 	<body
 		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
 	>
+	<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3FM7JTR"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 		<Navbar />
 		<slot />
 		<Footer />
