@@ -19,31 +19,54 @@ const menuitems = [
 ];
 ---
 
-<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
-  <Astronav>
-    <div class="flex w-full items-center justify-between lg:w-auto">
-      <a href="/CV%20Fabien-1.pdf" download>
-  <Button size={'sm'} name="Download CV">Télécharge mon CV</Button>
-</a>
-      <div class="block lg:hidden">
-        <MenuIcon class="h-4 w-4 text-black dark:text-white" />
-      </div>
-    </div>
-    <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
-      <ul class="flex flex-col lg:flex-row lg:gap-3">
-        {menuitems.map((item) => (
-          <li key={item.title}>
-            <a
-              aria-label="navigation link"
-              href={item.path}
-              class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
-            >
-              {item.title}
-            </a>
-          </li>
-        ))}
-        <li><ToggleTheme /></li>
-      </ul>
-    </MenuItems>
-  </Astronav>
-</header>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <!-- Google Tag Manager -->
+    <!-- Insérez le code GTM ci-dessous dans la balise head -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P3FM7JTR');</script>
+    <!-- Fin de Google Tag Manager -->
+  </head>
+  <body>
+    <header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
+      <Astronav>
+        <div class="flex w-full items-center justify-between lg:w-auto">
+          <a href="/CV%20Fabien-1.pdf" download>
+            <Button size={'sm'} name="Download CV">Télécharge mon CV</Button>
+          </a>
+          <div class="block lg:hidden">
+            <MenuIcon class="h-4 w-4 text-black dark:text-white" />
+          </div>
+        </div>
+        <MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+          <ul class="flex flex-col lg:flex-row lg:gap-3">
+            {menuitems.map((item) => (
+              <li key={item.title}>
+                <a
+                  aria-label="lien de navigation"
+                  href={item.path}
+                  class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+            <li><ToggleTheme /></li>
+          </ul>
+        </MenuItems>
+      </Astronav>
+    </header>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- Ajoutez la balise noscript avant la fermeture du corps body -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3FM7JTR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- Fin de Google Tag Manager (noscript) -->
+  </body>
+</html>
