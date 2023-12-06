@@ -40,6 +40,7 @@ module.exports = {
 		},
 	},
 	plugins: [
+		require('@codaworks/react-glow/tailwind'),
 		plugin(function ({ addBase, theme }) {
 			addBase({
 				h2: {
